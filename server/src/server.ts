@@ -1,4 +1,9 @@
 const forceDatabaseRefresh = false;
+console.log('Environment Variables:');
+console.log('DB_NAME:', process.env.DB_NAME);
+console.log('DB_USER:', process.env.DB_USER);
+console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
+console.log('JWT_SECRET_KEY:', process.env.JWT_SECRET_KEY);
 
 import dotenv from "dotenv";
 dotenv.config();
