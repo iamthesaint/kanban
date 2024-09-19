@@ -1,20 +1,26 @@
 import dotenv from "dotenv";
 dotenv.config();
-console.log("Database user:", process.env.DB_USER);
-console.log("Database password:", process.env.DB_PASSWORD);
-
 import { Sequelize } from "sequelize";
 import { UserFactory } from "./user.js";
 import { TicketFactory } from "./ticket.js";
 
-const sequelize = process.env.DB_URL
-  ? new Sequelize(process.env.DB_URL)
+// Use DATABASE_URL for Render deployment
+const sequelize = process.env.DATABASE_URL
+  ? new Sequelize(process.env.DATABASE_URL, {
+      dialect: "postgres",
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false, // Required for Render’s SSL handling
+        },
+      },
+    })
   : new Sequelize(
-      process.env.DB_NAME || "",
-      process.env.DB_USER || "",
-      process.env.DB_PASSWORD,
+      process.env.DB_NAME || "your_db_name",
+      process.env.DB_USER || "your_db_user",
+      process.env.DB_PASSWORD || "your_db_password",
       {
-        host: "localhost",
+        host: process.env.DB_HOST || "localhost",
         dialect: "postgres",
         dialectOptions: {
           decimalNumbers: true,
@@ -22,9 +28,11 @@ const sequelize = process.env.DB_URL
       }
     );
 
+// Initialize models
 const User = UserFactory(sequelize);
 const Ticket = TicketFactory(sequelize);
 
+// Define relationships
 User.hasMany(Ticket, { foreignKey: "assignedUserId" });
 Ticket.belongsTo(User, { foreignKey: "assignedUserId", as: "assignedUser" });
 
