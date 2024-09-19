@@ -1,5 +1,5 @@
-import { JwtPayload, jwtDecode } from 'jwt-decode';
-import type { UserData } from '../interfaces/UserData';
+import { JwtPayload, jwtDecode } from "jwt-decode";
+import type { UserData } from "../interfaces/UserData";
 
 class AuthService {
   getProfile() {
@@ -12,7 +12,7 @@ class AuthService {
     const token = this.getToken();
     return !!token && !this.isTokenExpired(token);
   }
-  
+
   isTokenExpired(token: string) {
     // return a value that indicates if the token is expired
     try {
@@ -23,26 +23,26 @@ class AuthService {
     } catch (error) {
       return false;
     }
-  } 
+  }
 
   getToken(): string {
     // return the token
-    const loggedUser = localStorage.getItem('id_token') || '';
+    const loggedUser = localStorage.getItem("id_token") || "";
     return loggedUser;
   }
 
   login(idToken: string) {
     // set the token to localStorage
     // redirect to the home page
-    localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    localStorage.setItem("id_token", idToken);
+    window.location.assign("/");
   }
 
   logout() {
     // remove the token from localStorage
     // redirect to the login page
-    localStorage.removeItem('id_token');
-    window.location.assign('/login');
+    localStorage.removeItem("id_token");
+    window.location.assign("/login");
   }
 }
 

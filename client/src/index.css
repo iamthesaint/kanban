@@ -23,16 +23,16 @@ input:-moz-placeholder {
 }
 
 a {
-  font-weight: 500;
+  font-weight: 400;
   color: #000000;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  font-style: italic;
 }
 
 body {
-  background: #ECF0F1;
+  background: #e1e1de;
   background-size: cover;
   background-repeat: no-repeat no-repeat;
   background-position: center center;
@@ -52,14 +52,16 @@ button {
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
+  box-shadow: #545454 0px 0px 0px 0.1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #626262;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: box-shadow 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  box-shadow: #545454 0px 0px 0px 0.2em;
+  font-style: italic;
 }
 button:focus,
 button:focus-visible {
@@ -69,9 +71,9 @@ button:focus-visible {
 main {
   color: black;
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: row;
+  margin-top: 40px;
 }
 
 tr {
@@ -87,7 +89,7 @@ tbody tr:nth-child(odd) {
 /* Navbar Content */
 .nav {
   display: flex;
-  padding: 1em 2em;
+  padding: 2em 6em;
 }
 
 .nav ul {
@@ -120,7 +122,7 @@ tbody tr:nth-child(odd) {
 }
 
 .active {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .table {
@@ -138,12 +140,12 @@ tbody tr:nth-child(odd) {
 
 .swim-lane {
   text-align: center;
-  font-weight: 500;
+  font-weight: 400;
   width: 33%;
   height: 90vh; 
   border: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 5px;
-  padding: 5px;
+  margin: 7px;
+  padding: 25px;
 }
 
 .todo {
@@ -164,26 +166,28 @@ tbody tr:nth-child(odd) {
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
   border: 0.1em solid black;
 }
 
 .container {
-  /* margin: auto; */
+  margin: auto;
   width: 100%;
-  /* height: 90%; */
+  height: 90%;
 }
 
 #create-ticket-link {
-  display: block;
   margin-left: auto;
+  display: block;
+  margin-bottom: 5px;
+  margin-right: 25px;
 }
 
 
 .form {
   width: 60%;
   height: 80%;
-  background-color: #b864c4;
+  background-color: #e29aeb;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -192,7 +196,8 @@ tbody tr:nth-child(odd) {
 }
 
 .form > h1, .form > label {
-  color: yellow;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
 }
 
 .form > input {
@@ -201,12 +206,13 @@ tbody tr:nth-child(odd) {
 }
 
 .form > label {
-  margin-top: 2.5%;
+  margin-top: 2px;
   margin-bottom: 2.5%;
 }
 
 .form button {
-  margin-top: 2.5%;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .form textarea {
@@ -229,6 +235,7 @@ tbody tr:nth-child(odd) {
   font-weight: 500;
   color: black;
   text-decoration: inherit;
+  transition: border-color 0.25s;
 }
 
 .deleteBtn:hover {
@@ -245,7 +252,7 @@ tbody tr:nth-child(odd) {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #8397aa;
     background-color: #ffffff;
   }
   a:hover {
