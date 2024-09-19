@@ -20,7 +20,7 @@ Login using saved credentials, edit and delete tickets.
 JWT token necessary.
 For developer usage guidelines, seed data through postgres.
 <img width="1500" alt="kanban" src="https://github.com/user-attachments/assets/01e2c04b-defc-41a5-80cf-7901f5411ab7">
-
+Deployed: https://kanban-le3a.onrender.com
 ## License
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
