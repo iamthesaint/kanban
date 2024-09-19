@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../utils/auth";
+
 
 const Navbar = () => {
   const [loginCheck, setLoginCheck] = useState(false);
-
+  const navigate = useNavigate();
   const checkLogin = () => {
     if (auth.loggedIn()) {
       setLoginCheck(true);
@@ -16,10 +17,18 @@ const Navbar = () => {
     checkLogin();
   }, [loginCheck]);
 
+  const handleKanbanClick = () => {
+    if (!loginCheck) {
+      navigate("/login");
+    } else {
+      navigate("/");
+    }
+  }
+
   return (
     <div className="nav">
       <div className="nav-title">
-        <Link to="/">Krazy Kanban Board</Link>
+        <Link to="#" onClick={handleKanbanClick}>Krazy Kanban Board</Link>
       </div>
       <ul>
         {!loginCheck ? (
